@@ -22,22 +22,28 @@ var t4 = thang[4];
 
 //node liri.js my-tweets allows you to show last 20 tweets when they are created at in your terminal/bash window
 
-// var params = {screen_name: 'nodejs'};
+var params = { screen_name: 'baddistxcodes' };
 //switch statement
 switch (t2) {
     case "my-tweets":
-    //from Twitter NPM
-        client.get('statuses/user_timeline', function (error, tweets, response) {
+        //from Twitter NPM
+        client.get('statuses/user_timeline', params, function (error, tweets, response) {
             if (error) return (error);
-            console.log(tweets);
+            for (i = 0; i < tweets.length; i++) {
+                console.log(tweets[i].html);
+            }
         })
+        break;
 
-    break;
+    //node liri.js spotify-this-song '<song name here>' will show the follwoing info about the song in my terminal: artist, songs name, a preview link of the song from spotify, the album the song is from. //If no song is provided, program will default to "the sign" by Ace of Base
+    case "spotify-this-song":
+        //spotify 
+        spotify.search({ type: 'artist OR album OR track', query: t3 }, function (error, data) {
+            if (error) return (error);
+            console.log(data);
+        });
+        break;
 }
-
-
-
-//node liri.js spotify-this-song '<song name here>' will show the follwoing info about the song in my terminal: artist, songs name, a preview link of the song from spotify, the album the song is from. //If no song is provided, program will default to "the sign" by Ace of Base 
 
 //node liri.js movie-this '<movie name here>' this will output: title of movie, year it cam out, imdb rating of the movie, rotten tomatoes rating, country produced, lang of movie, plot, actors //if user doesn't type move in the program will output data for the movie 'Mr.Nobody'
 
