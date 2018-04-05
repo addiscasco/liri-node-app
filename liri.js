@@ -12,16 +12,16 @@ var Twitter = require("twitter");
 //File system module allows you to work with the file system on my computer. To include the FS module, use the require() method:
 var fs = require("fs");
 
-var thang = process.argv,
-    thing2 = thang[2],
-    thing3 = thang[3]
-    thing4 = thang[4];
+var thang = process.argv;
+var t2 = thang[2];
+var t3 = thang[3];
+var t4 = thang[4];
 
 //node liri.js my-tweets allows you to show last 20 tweets when they are created at in your terminal/bash window
 
 // var params = {screen_name: 'nodejs'};
 //switch statement
-switch (thang2) {
+switch (t2) {
     case "my-tweets":
     //from Twitter NPM
         client.get('statuses/user_timeline', params, function (error, tweets, response) {
