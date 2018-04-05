@@ -12,7 +12,7 @@ var Twitter = require("twitter");
 var thang = process.argv,
     thing2 = thang[2],
     thing3 = thang[3]
-thing4 = thang[4];
+    thing4 = thang[4];
 
 //node liri.js my-tweets allows you to show last 20 tweets when they are created at in your terminal/bash window
 
