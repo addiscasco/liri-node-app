@@ -9,6 +9,9 @@ var client = new twitter(keys.twitter);
 var Spotify = require("node-spotify-api");
 var Twitter = require("twitter");
 
+//File system module allows you to work with the file system on my computer. To include the FS module, use the require() method:
+var fs = require("fs");
+
 var thang = process.argv,
     thing2 = thang[2],
     thing3 = thang[3]
