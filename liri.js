@@ -6,8 +6,27 @@ var keys = require("./keys.js");
 var spotify = new Spotify(keys.spotify);
 var client = new twitter(keys.twitter);
 
+var Spotify = require("node-spotify-api");
+var Twitter = require("twitter");
+
+var thang = process.argv,
+    thing2 = thang[2],
+    thing3 = thang[3]
+thing4 = thang[4];
 
 //node liri.js my-tweets allows you to show last 20 tweets when they are created at in your terminal/bash window
+
+// var params = {screen_name: 'nodejs'};
+//switch statement
+switch (thang2) {
+    case "my-tweets":
+    //from Twitter NPM
+        client.get('statuses/user_timeline', params, function (error, tweets, response) {
+            if (err) return (err);
+            console.log(tweets);
+        })
+}
+
 
 //node liri.js spotify-this-song '<song name here>' will show the follwoing info about the song in my terminal: artist, songs name, a preview link of the song from spotify, the album the song is from. //If no song is provided, program will default to "the sign" by Ace of Base 
 
