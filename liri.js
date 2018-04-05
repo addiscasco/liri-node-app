@@ -1,16 +1,19 @@
-//starting code 
+//reads and sets any environment variables
 var dotenv = require("dotenv").config();
 //import keys.js and stored it in a variable
 var keys = require("./keys.js");
-//access keys information
-var spotify = new Spotify(keys.spotify);
-var client = new twitter(keys.twitter);
 
 var Spotify = require("node-spotify-api");
 var Twitter = require("twitter");
 
+//access keys information - contructor must be placed after variable has been created for Spotify and Twitter
+var spotify = new Spotify(keys.spotify);
+var client = new Twitter(keys.twitter);
+
 //File system module allows you to work with the file system on my computer. To include the FS module, use the require() method:
 var fs = require("fs");
+
+var request = require("request");
 
 var thang = process.argv;
 var t2 = thang[2];
@@ -24,11 +27,14 @@ var t4 = thang[4];
 switch (t2) {
     case "my-tweets":
     //from Twitter NPM
-        client.get('statuses/user_timeline', params, function (error, tweets, response) {
-            if (err) return (err);
+        client.get('statuses/user_timeline', function (error, tweets, response) {
+            if (error) return (error);
             console.log(tweets);
         })
+
+    break;
 }
+
 
 
 //node liri.js spotify-this-song '<song name here>' will show the follwoing info about the song in my terminal: artist, songs name, a preview link of the song from spotify, the album the song is from. //If no song is provided, program will default to "the sign" by Ace of Base 
